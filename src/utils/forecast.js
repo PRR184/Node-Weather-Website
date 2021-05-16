@@ -16,7 +16,12 @@ const forecast = (longitude,lattitude,callback)=>{
             callback('Unable to find location. Your Longitude is wrong.',{undefined})
         } 
         else{
-            const data='The weather looks as '+body.weather[0].description + '!. It is currently ' +body.main.temp + ' degrees out.'
+            // const data='The weather looks as '+body.weather[0].description + '!. It is currently ' +body.main.temp + ' degrees out.'
+            const data = {
+                description:body.weather[0].description,
+                temperature:body.main.temp,
+                icon:body.weather[0].icon,
+            }
             callback(undefined,data)
         }
 
